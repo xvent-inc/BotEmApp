@@ -119,7 +119,6 @@
                                 </state>
                                 <connections>
                                     <action selector="onSignIn:" destination="whk-5P-5WJ" eventType="touchUpInside" id="hjT-ri-Zj9"/>
-                                    <segue destination="Ieq-iI-9do" kind="presentation" identifier="loginSegue" id="xBz-pJ-ncs"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTU-9p-w5s">
@@ -164,6 +163,7 @@
                         <outlet property="signInButton" destination="Da5-H3-cCJ" id="Led-fj-FTX"/>
                         <outlet property="signUpButton" destination="BTU-9p-w5s" id="77P-jw-nSp"/>
                         <outlet property="usernameField" destination="Dfq-lP-cKc" id="I2d-bu-Wta"/>
+                        <segue destination="Ieq-iI-9do" kind="presentation" identifier="loginSegue" id="gJv-GC-eeY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Wg-sH-btX" userLabel="First Responder" sceneMemberID="firstResponder"/>
