@@ -418,6 +418,4 @@ Organized marketplace for streetwear/sneaker bots. Serves as a middle-man betwee
 <img src="http://g.recordit.co/SUkKp8nmHH.gif" width=200>
 
 [x] Login Screen
-   * User can login
 [x] Sign up screen
-   * User can create an account
