@@ -2,9 +2,10 @@
 
 ## Table of Contents
 1. [Overview](#Overview)
-1. [Product Spec](#Product-Spec)
-1. [Wireframes](#Wireframes)
-2. [Schema](#Schema)
+2. [Product Spec](#Product-Spec)
+3. [Wireframes](#Wireframes)
+4. [Schema](#Schema)
+5. [Current Progress](#Current-Progress)
 
 ## Overview
 ### Description
@@ -414,3 +415,9 @@ Organized marketplace for streetwear/sneaker bots. Serves as a middle-man betwee
         }
     }
     ```
+## Current Progress
+<img src="http://g.recordit.co/SUkKp8nmHH.gif" width=200>
+
+[x] Login Screen
+
+[x] Sign up screen
