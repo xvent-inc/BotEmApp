@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26418439226164AE00A14DDB /* StreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26418438226164AE00A14DDB /* StreamViewController.swift */; };
+		2641843B226167C700A14DDB /* LifetimeBotCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2641843A226167C700A14DDB /* LifetimeBotCollectionViewCell.swift */; };
 		28EC0868EE6E8ACA4E8582E5 /* Pods_BotEmUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23511296D8635C2EE9A320C9 /* Pods_BotEmUITests.framework */; };
 		3B36FEB5E58A3C11D2A7A0E8 /* Pods_BotEm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D86FFEAC6770A63E5017259 /* Pods_BotEm.framework */; };
 		58A27DD968E06874E8F8E1E5 /* Pods_BotEmTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD833E6123F5082FC156C715 /* Pods_BotEmTests.framework */; };
@@ -40,6 +42,8 @@
 
 /* Begin PBXFileReference section */
 		23511296D8635C2EE9A320C9 /* Pods_BotEmUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BotEmUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		26418438226164AE00A14DDB /* StreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamViewController.swift; sourceTree = "<group>"; };
+		2641843A226167C700A14DDB /* LifetimeBotCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifetimeBotCollectionViewCell.swift; sourceTree = "<group>"; };
 		3060A2FDCE638655AB58781D /* Pods-BotEm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BotEm.debug.xcconfig"; path = "Target Support Files/Pods-BotEm/Pods-BotEm.debug.xcconfig"; sourceTree = "<group>"; };
 		6D86FFEAC6770A63E5017259 /* Pods_BotEm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BotEm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E7836642034E2D4E3A718F5 /* Pods-BotEmUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BotEmUITests.release.xcconfig"; path = "Target Support Files/Pods-BotEmUITests/Pods-BotEmUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -149,6 +153,8 @@
 				C48571FF2258424F00150419 /* LaunchScreen.storyboard */,
 				C48572022258424F00150419 /* Info.plist */,
 				C4857224225843CF00150419 /* FormTextField.swift */,
+				26418438226164AE00A14DDB /* StreamViewController.swift */,
+				2641843A226167C700A14DDB /* LifetimeBotCollectionViewCell.swift */,
 			);
 			path = BotEm;
 			sourceTree = "<group>";
@@ -403,10 +409,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26418439226164AE00A14DDB /* StreamViewController.swift in Sources */,
 				C4857225225843CF00150419 /* FormTextField.swift in Sources */,
 				C48572272258440C00150419 /* SignUpViewController.swift in Sources */,
 				C4857229225849ED00150419 /* LoginViewController.swift in Sources */,
 				C48571F72258424F00150419 /* AppDelegate.swift in Sources */,
+				2641843B226167C700A14DDB /* LifetimeBotCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
