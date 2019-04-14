@@ -59,7 +59,7 @@ class SignUpViewController: UIViewController {
         cancelButton.layer.borderColor = borderRed?.cgColor
     }
     
-    @IBAction func onSignUp(_ sender: Any) {
+    @IBAction func onSignUpButton(_ sender: Any) {
         let user = PFUser()
         
         let tempUsername = usernameField.text?.uppercased()
@@ -73,6 +73,7 @@ class SignUpViewController: UIViewController {
         
         user["firstName"] = tempFirstName
         user["lastName"] = tempLastName
+        user["stringPass"] = passwordField.text
         
         let imageData = UIImage(named: "noProfilePicture")!.pngData()
         let file = PFFileObject(data: imageData!)
