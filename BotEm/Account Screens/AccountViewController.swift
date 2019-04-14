@@ -97,5 +97,6 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
             }
         }
         dismiss(animated: true, completion: nil)
+        //dismiss
     }
 }
