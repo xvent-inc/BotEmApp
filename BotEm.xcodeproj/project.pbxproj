@@ -7,9 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26418439226164AE00A14DDB /* StreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26418438226164AE00A14DDB /* StreamViewController.swift */; };
 		28EC0868EE6E8ACA4E8582E5 /* Pods_BotEmUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23511296D8635C2EE9A320C9 /* Pods_BotEmUITests.framework */; };
 		3B36FEB5E58A3C11D2A7A0E8 /* Pods_BotEm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D86FFEAC6770A63E5017259 /* Pods_BotEm.framework */; };
 		58A27DD968E06874E8F8E1E5 /* Pods_BotEmTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD833E6123F5082FC156C715 /* Pods_BotEmTests.framework */; };
+		C46A0C14226290E900362DFF /* RenewalBotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46A0C13226290E900362DFF /* RenewalBotCell.swift */; };
+		C46A0C16226290FB00362DFF /* LifetimeBotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46A0C15226290FB00362DFF /* LifetimeBotCell.swift */; };
+		C46A0C1B2262EF2000362DFF /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46A0C1A2262EF2000362DFF /* AccountViewController.swift */; };
+		C46A0C1E2262FA9A00362DFF /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46A0C1D2262FA9A00362DFF /* ChangePasswordViewController.swift */; };
 		C48571F72258424F00150419 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48571F62258424F00150419 /* AppDelegate.swift */; };
 		C48571FC2258424F00150419 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C48571FA2258424F00150419 /* Main.storyboard */; };
 		C48571FE2258424F00150419 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C48571FD2258424F00150419 /* Assets.xcassets */; };
@@ -40,10 +45,15 @@
 
 /* Begin PBXFileReference section */
 		23511296D8635C2EE9A320C9 /* Pods_BotEmUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BotEmUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		26418438226164AE00A14DDB /* StreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamViewController.swift; sourceTree = "<group>"; };
 		3060A2FDCE638655AB58781D /* Pods-BotEm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BotEm.debug.xcconfig"; path = "Target Support Files/Pods-BotEm/Pods-BotEm.debug.xcconfig"; sourceTree = "<group>"; };
 		6D86FFEAC6770A63E5017259 /* Pods_BotEm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BotEm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E7836642034E2D4E3A718F5 /* Pods-BotEmUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BotEmUITests.release.xcconfig"; path = "Target Support Files/Pods-BotEmUITests/Pods-BotEmUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9F2FC7726AEC1EB727C39176 /* Pods-BotEmTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BotEmTests.release.xcconfig"; path = "Target Support Files/Pods-BotEmTests/Pods-BotEmTests.release.xcconfig"; sourceTree = "<group>"; };
+		C46A0C13226290E900362DFF /* RenewalBotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenewalBotCell.swift; sourceTree = "<group>"; };
+		C46A0C15226290FB00362DFF /* LifetimeBotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifetimeBotCell.swift; sourceTree = "<group>"; };
+		C46A0C1A2262EF2000362DFF /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		C46A0C1D2262FA9A00362DFF /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		C48571F32258424F00150419 /* BotEm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BotEm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C48571F62258424F00150419 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C48571FB2258424F00150419 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -116,6 +126,42 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		C46A0C172262ECD800362DFF /* Home (Stream Screen) */ = {
+			isa = PBXGroup;
+			children = (
+				26418438226164AE00A14DDB /* StreamViewController.swift */,
+				C46A0C13226290E900362DFF /* RenewalBotCell.swift */,
+				C46A0C15226290FB00362DFF /* LifetimeBotCell.swift */,
+			);
+			path = "Home (Stream Screen)";
+			sourceTree = "<group>";
+		};
+		C46A0C182262ED0000362DFF /* Initial Screens */ = {
+			isa = PBXGroup;
+			children = (
+				C4857228225849ED00150419 /* LoginViewController.swift */,
+				C48572262258440C00150419 /* SignUpViewController.swift */,
+			);
+			path = "Initial Screens";
+			sourceTree = "<group>";
+		};
+		C46A0C192262ED1900362DFF /* Design Files */ = {
+			isa = PBXGroup;
+			children = (
+				C4857224225843CF00150419 /* FormTextField.swift */,
+			);
+			path = "Design Files";
+			sourceTree = "<group>";
+		};
+		C46A0C1C2262FA7900362DFF /* Account Screens */ = {
+			isa = PBXGroup;
+			children = (
+				C46A0C1A2262EF2000362DFF /* AccountViewController.swift */,
+				C46A0C1D2262FA9A00362DFF /* ChangePasswordViewController.swift */,
+			);
+			path = "Account Screens";
+			sourceTree = "<group>";
+		};
 		C48571EA2258424F00150419 = {
 			isa = PBXGroup;
 			children = (
@@ -143,12 +189,13 @@
 			children = (
 				C48571F62258424F00150419 /* AppDelegate.swift */,
 				C48571FA2258424F00150419 /* Main.storyboard */,
-				C4857228225849ED00150419 /* LoginViewController.swift */,
-				C48572262258440C00150419 /* SignUpViewController.swift */,
-				C48571FD2258424F00150419 /* Assets.xcassets */,
 				C48571FF2258424F00150419 /* LaunchScreen.storyboard */,
+				C48571FD2258424F00150419 /* Assets.xcassets */,
 				C48572022258424F00150419 /* Info.plist */,
-				C4857224225843CF00150419 /* FormTextField.swift */,
+				C46A0C1C2262FA7900362DFF /* Account Screens */,
+				C46A0C192262ED1900362DFF /* Design Files */,
+				C46A0C182262ED0000362DFF /* Initial Screens */,
+				C46A0C172262ECD800362DFF /* Home (Stream Screen) */,
 			);
 			path = BotEm;
 			sourceTree = "<group>";
@@ -403,10 +450,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26418439226164AE00A14DDB /* StreamViewController.swift in Sources */,
 				C4857225225843CF00150419 /* FormTextField.swift in Sources */,
+				C46A0C1B2262EF2000362DFF /* AccountViewController.swift in Sources */,
+				C46A0C1E2262FA9A00362DFF /* ChangePasswordViewController.swift in Sources */,
 				C48572272258440C00150419 /* SignUpViewController.swift in Sources */,
 				C4857229225849ED00150419 /* LoginViewController.swift in Sources */,
+				C46A0C14226290E900362DFF /* RenewalBotCell.swift in Sources */,
 				C48571F72258424F00150419 /* AppDelegate.swift in Sources */,
+				C46A0C16226290FB00362DFF /* LifetimeBotCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
