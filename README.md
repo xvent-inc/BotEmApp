@@ -85,8 +85,6 @@ Organized marketplace for streetwear/sneaker bots. Serves as a middle-man betwee
    > Sign Up Screen
 * Sign up screen
    > Login Screen
-* Reset Password screen
-   > Login Screen 
 * Stream Screen (Home)
    > Detail
 * Detail Screen
@@ -103,7 +101,7 @@ Organized marketplace for streetwear/sneaker bots. Serves as a middle-man betwee
    > Change Password Screen
 
    > Image Picker (User Profile Photo)
-* Change Passwrod Screen
+* Change Password Screen
    > Account Screen
    
 ## Wireframes
@@ -416,8 +414,12 @@ Organized marketplace for streetwear/sneaker bots. Serves as a middle-man betwee
     }
     ```
 ## Current Progress
-<img src="http://g.recordit.co/SUkKp8nmHH.gif" width=200>
+<img src="http://g.recordit.co/HAnorspWXf.gif" width=200>
 
-[x] Login Screen
-
-[x] Sign up screen
+- [x] Login Screen
+- [x] Sign up screen
+- [x] Stream Screen (Home)
+- [x] Detail Screen
+- [x] Sell Screen
+- [x] Account Screen
+- [x] Change Password Screen
