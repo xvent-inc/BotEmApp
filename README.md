@@ -421,10 +421,3 @@ Organized marketplace for streetwear/sneaker bots. Serves as a middle-man betwee
 [x] Login Screen
 
 [x] Sign up screen
-
-## Current Progress
-<img src="http://g.recordit.co/Le6J9I4UbH.gif" width=200> <img src="http://g.recordit.co/JTj4qsasox.gif" width=200>
-
-[x] Stream/Home Screen
-
-[x] List Bot Screen

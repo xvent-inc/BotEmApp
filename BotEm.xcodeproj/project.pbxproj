@@ -10,6 +10,8 @@
 		26418439226164AE00A14DDB /* StreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26418438226164AE00A14DDB /* StreamViewController.swift */; };
 		28EC0868EE6E8ACA4E8582E5 /* Pods_BotEmUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23511296D8635C2EE9A320C9 /* Pods_BotEmUITests.framework */; };
 		3B36FEB5E58A3C11D2A7A0E8 /* Pods_BotEm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D86FFEAC6770A63E5017259 /* Pods_BotEm.framework */; };
+		50811A202266CE4B00607D7C /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50811A1F2266CE4B00607D7C /* DetailsViewController.swift */; };
+		50811A632268172B00607D7C /* ToListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50811A622268172B00607D7C /* ToListViewController.swift */; };
 		58A27DD968E06874E8F8E1E5 /* Pods_BotEmTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD833E6123F5082FC156C715 /* Pods_BotEmTests.framework */; };
 		C46A0C14226290E900362DFF /* RenewalBotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46A0C13226290E900362DFF /* RenewalBotCell.swift */; };
 		C46A0C16226290FB00362DFF /* LifetimeBotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46A0C15226290FB00362DFF /* LifetimeBotCell.swift */; };
@@ -47,6 +49,8 @@
 		23511296D8635C2EE9A320C9 /* Pods_BotEmUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BotEmUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		26418438226164AE00A14DDB /* StreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamViewController.swift; sourceTree = "<group>"; };
 		3060A2FDCE638655AB58781D /* Pods-BotEm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BotEm.debug.xcconfig"; path = "Target Support Files/Pods-BotEm/Pods-BotEm.debug.xcconfig"; sourceTree = "<group>"; };
+		50811A1F2266CE4B00607D7C /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		50811A622268172B00607D7C /* ToListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToListViewController.swift; sourceTree = "<group>"; };
 		6D86FFEAC6770A63E5017259 /* Pods_BotEm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BotEm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E7836642034E2D4E3A718F5 /* Pods-BotEmUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BotEmUITests.release.xcconfig"; path = "Target Support Files/Pods-BotEmUITests/Pods-BotEmUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9F2FC7726AEC1EB727C39176 /* Pods-BotEmTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BotEmTests.release.xcconfig"; path = "Target Support Files/Pods-BotEmTests/Pods-BotEmTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -111,6 +115,15 @@
 				23511296D8635C2EE9A320C9 /* Pods_BotEmUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		50811A61226814CB00607D7C /* Details Screen */ = {
+			isa = PBXGroup;
+			children = (
+				50811A1F2266CE4B00607D7C /* DetailsViewController.swift */,
+				50811A622268172B00607D7C /* ToListViewController.swift */,
+			);
+			path = "Details Screen";
 			sourceTree = "<group>";
 		};
 		51EB213AFAF5C6E3CEE7A93D /* Pods */ = {
@@ -196,6 +209,7 @@
 				C46A0C192262ED1900362DFF /* Design Files */,
 				C46A0C182262ED0000362DFF /* Initial Screens */,
 				C46A0C172262ECD800362DFF /* Home (Stream Screen) */,
+				50811A61226814CB00607D7C /* Details Screen */,
 			);
 			path = BotEm;
 			sourceTree = "<group>";
@@ -459,6 +473,8 @@
 				C46A0C14226290E900362DFF /* RenewalBotCell.swift in Sources */,
 				C48571F72258424F00150419 /* AppDelegate.swift in Sources */,
 				C46A0C16226290FB00362DFF /* LifetimeBotCell.swift in Sources */,
+				50811A202266CE4B00607D7C /* DetailsViewController.swift in Sources */,
+				50811A632268172B00607D7C /* ToListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

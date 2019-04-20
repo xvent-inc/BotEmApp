@@ -116,6 +116,30 @@ class StreamViewController: UIViewController, UICollectionViewDelegate, UICollec
             return renewalCell
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let detailsViewController = segue.destination as! DetailsViewController
+        
+        if (segue.identifier == "lifetimeBotSegue") {
+            let cell = sender as! UICollectionViewCell
+            let indexPath = lifetimeBotCollection.indexPath(for: cell)!
+            let bot = lifetimeBots[indexPath.item]
+            let botType = "Lifetime"
+            
+            detailsViewController.bot = bot
+            detailsViewController.imageBorder = UIColor(hex: "#3AC2A0ff")
+            detailsViewController.botType = botType
+        } else {
+            let cell = sender as! UICollectionViewCell
+            let indexPath = renewalBotCollection.indexPath(for: cell)!
+            let bot = renewalBots[indexPath.item]
+            let botType = "Renewal"
+            
+            detailsViewController.bot = bot
+            detailsViewController.imageBorder = UIColor(hex:"#FDCF70ff")
+            detailsViewController.botType = botType
+        }
+    }
 }
 
 extension UIColor {
