@@ -42,7 +42,6 @@ class TransactionsViewController: UIViewController, UICollectionViewDelegate, UI
         transactionsQuery.whereKey("author", equalTo: PFUser.current()!)
         //transactionsQuery.whereKey("seller", equalTo: PFUser.current()!)
         //transactionsQuery.whereKey("buyer", equalTo: PFUser.current()!)
-        transactionsQuery.limit = 20
         
         transactionsQuery.findObjectsInBackground { (transactions: [PFObject]?, error: Error?) in
             if let error = error {

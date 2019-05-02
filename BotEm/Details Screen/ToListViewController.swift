@@ -94,7 +94,7 @@ class ToListViewController: UIViewController {
         
         listing.saveInBackground() { (success, error) in
             if success {
-                self.dismiss(animated: true, completion: nil)
+                self.performSegue(withIdentifier: "listNowSegue", sender: nil)
                 print("Listing Posted!")
             } else {
                 print("Error: \(String(describing: error?.localizedDescription))")

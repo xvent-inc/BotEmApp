@@ -23,7 +23,6 @@ class UserListingsViewController: UIViewController, UICollectionViewDelegate, UI
         
         let listingsQuery = PFQuery(className: "Listings")
         listingsQuery.whereKey("seller", equalTo: PFUser.current()!)
-        listingsQuery.limit = 20
         
         listingsQuery.findObjectsInBackground { (listings: [PFObject]?, error: Error?) in
             if let error = error {

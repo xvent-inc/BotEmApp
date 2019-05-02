@@ -1260,6 +1260,9 @@
                                 </state>
                                 <connections>
                                     <action selector="onList:" destination="wsV-n0-eaZ" eventType="touchUpInside" id="GzZ-32-BMP"/>
+                                    <segue destination="Ieq-iI-9do" kind="popoverPresentation" identifier="listNowSegue" popoverAnchorView="K2l-Kp-iVr" id="V4B-lM-97o">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
                         </subviews>
@@ -1330,5 +1333,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="zvE-kB-Aml"/>
+        <segue reference="V4B-lM-97o"/>
     </inferredMetricsTieBreakers>
 </document>
