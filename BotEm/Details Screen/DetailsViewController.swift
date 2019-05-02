@@ -23,6 +23,9 @@ class DetailsViewController: UIViewController {
     var bot: PFObject!
     var botType: String!
     var imageBorder: UIColor!
+    var listings = [PFObject]()
+    var nameOfBot: String = " "
+    var botTypeCopy: String = " "
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,11 +44,54 @@ class DetailsViewController: UIViewController {
         botImage.af_setImage(withURL: url)
         
         botName.text = bot["BotName"] as? String
+        nameOfBot = (bot["BotName"] as? String)!
+        botTypeCopy = botType.uppercased()
+        
         botDescription.text = bot["BotDescription"] as? String
-        botPrice.text = "$\(bot["LastSoldPrice"]!)"
-        lowestPrice.text = "$\(bot["CurrentPrice"]!)"
+        //botPrice.text = "$\(bot["LastSoldPrice"]!)"
+        //lowestPrice.text = "$\(bot["CurrentPrice"]!)"
+        
+        let listingsQuery = PFQuery(className: "Listings")
+        listingsQuery.whereKey("botName", equalTo: nameOfBot)
+        listingsQuery.whereKey("botType", equalTo: botTypeCopy)
+        listingsQuery.order(byAscending: "transactionAmount")
+        listingsQuery.selectKeys(["transactionAmount"])
+        listingsQuery.limit = 1
+        
+        listingsQuery.findObjectsInBackground { (price: [PFObject]?, error: Error?) in
+            if let error = error {
+                // The request failed
+                print(error.localizedDescription)
+            } else if let price = price {
+                price.forEach { (price) in
+                    print("Successfully retrieved \(String(describing: price["transactionAmount"])).");
+                    self.lowestPrice.text = "$\(price["transactionAmount"]!)"
+                }
+            }
+        }
+        
+        
+        let transactionsQuery = PFQuery(className: "Transactions")
+        transactionsQuery.whereKey("botName", equalTo: nameOfBot)
+        transactionsQuery.whereKey("botType", equalTo: botTypeCopy)
+        transactionsQuery.order(byDescending: "timeOfTransaction")
+        transactionsQuery.selectKeys(["transactionAmount"])
+        transactionsQuery.limit = 1
+        
+        transactionsQuery.findObjectsInBackground { (price: [PFObject]?, error: Error?) in
+            if let error = error {
+                // The request failed
+                print(error.localizedDescription)
+            } else if let price = price {
+                price.forEach { (price) in
+                    print("Successfully retrieved \(String(describing: price["transactionAmount"])).");
+                    self.botPrice.text = "$\(price["transactionAmount"]!)"
+                }
+            }
+        }
+        
     }
-    // note to test commit
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let toListViewController = segue.destination as! ToListViewController
         

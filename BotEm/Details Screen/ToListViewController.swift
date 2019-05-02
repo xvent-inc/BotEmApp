@@ -28,6 +28,10 @@ class ToListViewController: UIViewController {
     var botType: String!
     var bot: PFObject!
     
+    var payoutNumber: Double = 0.0
+    var transactionFeeAmount: Double = 0.0
+    var paymentProcFeeAmount: Double = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,10 +60,10 @@ class ToListViewController: UIViewController {
 
     @IBAction func sellPriceChanged(_ sender: Any) {
         let sellPrice = priceField.text._bridgeToObjectiveC().doubleValue
-        let transactionFeeAmount = sellPrice! * 0.095
-        let paymentProcFeeAmount = sellPrice! * 0.03
+        transactionFeeAmount = sellPrice! * 0.095
+        paymentProcFeeAmount = sellPrice! * 0.03
         
-        let payoutNumber: Double = (sellPrice! - transactionFeeAmount - paymentProcFeeAmount)
+        payoutNumber = (sellPrice! - transactionFeeAmount - paymentProcFeeAmount)
         
         transactionFee.text = String(format: "$%.2f", transactionFeeAmount)
         paymentProcFee.text = String(format: "$%.2f", paymentProcFeeAmount)
@@ -72,5 +76,29 @@ class ToListViewController: UIViewController {
     
     @IBAction func onTap(_ sender: Any) {
         view.endEditing(true)
+    }
+    
+    @IBAction func onList(_ sender: Any) {
+        let listing = PFObject(className: "Listings")
+        
+        listing["seller"] = PFUser.current()!
+        listing["botName"] = bot["BotName"] as? String
+        listing["botType"] = botType.uppercased()
+        listing["transactionAmount"] = priceField.text
+        listing["transactionType"] = "SALE"
+        listing["payoutAmount"] = String(format: "%.2f", payoutNumber)
+        listing["transactionNumber"] = String(Int.random(in: 10000 ..< 99999))
+        listing["transactionStatus"] = "Up For Sale"
+        listing["paymentProcFee"] = String(format: "%.2f", paymentProcFeeAmount)
+        listing["transactionFee"] = String(format: "%.2f", transactionFeeAmount)
+        
+        listing.saveInBackground() { (success, error) in
+            if success {
+                self.dismiss(animated: true, completion: nil)
+                print("Listing Posted!")
+            } else {
+                print("Error: \(String(describing: error?.localizedDescription))")
+            }
+        }
     }
 }

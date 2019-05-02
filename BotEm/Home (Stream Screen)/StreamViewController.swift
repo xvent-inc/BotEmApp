@@ -31,10 +31,6 @@ class StreamViewController: UIViewController, UICollectionViewDelegate, UICollec
         
         renewalBotCollection.delegate = self
         renewalBotCollection.dataSource = self
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         
         let lifetimeQuery = PFQuery(className: "LifetimeBots")
         lifetimeQuery.includeKeys(["BotName", "BotImage", "BotDescription", "BotPrice", "BotLastSoldPrice"])
