@@ -45,7 +45,7 @@ class DetailsViewController: UIViewController {
         botPrice.text = "$\(bot["LastSoldPrice"]!)"
         lowestPrice.text = "$\(bot["CurrentPrice"]!)"
     }
-    
+    // note to test commit
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let toListViewController = segue.destination as! ToListViewController
         
