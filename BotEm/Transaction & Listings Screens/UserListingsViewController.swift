@@ -49,6 +49,9 @@ class UserListingsViewController: UIViewController, UICollectionViewDelegate, UI
         
         let listing = listings[indexPath.item]
         
+        cell.deleteListingButton?.layer.setValue(indexPath.item, forKey: "index")
+        cell.deleteListingButton?.addTarget(self, action: #selector(deleteListing(sender:)), for: .touchUpInside)
+                
         var nameOfBot = listing["botName"] as? String
         if nameOfBot == "Project Destroyer" {
             nameOfBot = "Proj. Dest."
@@ -70,6 +73,12 @@ class UserListingsViewController: UIViewController, UICollectionViewDelegate, UI
         return cell
     }
     
-    @IBAction func deleteButtonTapped(_ sender: Any) {
+    @objc func deleteListing(sender:UIButton) {
+        let i : Int = (sender.layer.value(forKey: "index")) as! Int
+        listings[i].deleteInBackground()
+        self.viewDidLoad()
+        UserListingsCollectionView.reloadData()
     }
 }
+
+
