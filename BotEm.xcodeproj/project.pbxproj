@@ -147,6 +147,17 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		BE0E8779227BCE5C00D8807F /* Transaction & Listings Screens */ = {
+			isa = PBXGroup;
+			children = (
+				C4681F09227AC1840094A647 /* TransactionsViewController.swift */,
+				C4681F0B227AC1AC0094A647 /* TransactionCollectionViewCell.swift */,
+				C4681F0F227AF0B10094A647 /* UserListingsViewController.swift */,
+				C4681F0D227AF09C0094A647 /* UserListingsCollectionViewCell.swift */,
+			);
+			path = "Transaction & Listings Screens";
+			sourceTree = "<group>";
+		};
 		C46A0C172262ECD800362DFF /* Home (Stream Screen) */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,15 +224,12 @@
 				C48571FF2258424F00150419 /* LaunchScreen.storyboard */,
 				C48571FD2258424F00150419 /* Assets.xcassets */,
 				C48572022258424F00150419 /* Info.plist */,
+				BE0E8779227BCE5C00D8807F /* Transaction & Listings Screens */,
 				C46A0C1C2262FA7900362DFF /* Account Screens */,
 				C46A0C192262ED1900362DFF /* Design Files */,
 				C46A0C182262ED0000362DFF /* Initial Screens */,
 				C46A0C172262ECD800362DFF /* Home (Stream Screen) */,
 				50811A61226814CB00607D7C /* Details Screen */,
-				C4681F09227AC1840094A647 /* TransactionsViewController.swift */,
-				C4681F0B227AC1AC0094A647 /* TransactionCollectionViewCell.swift */,
-				C4681F0F227AF0B10094A647 /* UserListingsViewController.swift */,
-				C4681F0D227AF09C0094A647 /* UserListingsCollectionViewCell.swift */,
 			);
 			path = BotEm;
 			sourceTree = "<group>";
