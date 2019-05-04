@@ -91,18 +91,6 @@ class DetailsViewController: UIViewController {
     }
     
     @IBAction func purchaseButtonTapped(_ sender: Any) {
-        /*let listingToPurchaseQuery = PFQuery(className: "Listings")
-        listingToPurchaseQuery.whereKey("botName", equalTo: nameOfBot)
-        listingToPurchaseQuery.whereKey("botType", equalTo: botTypeCopy)
-        listingToPurchaseQuery.order(byAscending: "transactionAmount")
-        listingToPurchaseQuery.limit = 1
-        
-        listingToPurchaseQuery.findObjectsInBackground { (listingToPurchase, error) in
-            if listingToPurchase != nil {
-                self.listingToPurchase = listingToPurchase
-            } else {
-            }
-        }*/
         
         let transaction = PFObject(className: "Transactions")
         
