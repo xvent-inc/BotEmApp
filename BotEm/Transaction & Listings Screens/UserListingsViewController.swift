@@ -34,10 +34,6 @@ class UserListingsViewController: UIViewController, UICollectionViewDelegate, UI
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        self.UserListingsCollectionView.reloadData()
-    }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return listings.count
     }
@@ -69,6 +65,8 @@ class UserListingsViewController: UIViewController, UICollectionViewDelegate, UI
         let payoutNum = listing["payoutAmount"] as? String
         cell.payoutAmount.lineBreakMode = .byClipping
         cell.payoutAmount.text = "POTENTIAL PAYOUT: $" + payoutNum!
+        
+        self.viewDidLoad()
         
         return cell
     }

@@ -82,13 +82,12 @@ class ToListViewController: UIViewController {
         let listing = PFObject(className: "Listings")
         
         listing["seller"] = PFUser.current()!
+        listing["sellerEmail"] = PFUser.current()?.email
         listing["botName"] = bot["BotName"] as? String
         listing["botType"] = botType.uppercased()
         listing["transactionAmount"] = priceField.text
         listing["transactionType"] = "SALE"
         listing["payoutAmount"] = String(format: "%.2f", payoutNumber)
-        listing["transactionNumber"] = String(Int.random(in: 10000 ..< 99999))
-        listing["transactionStatus"] = "Up For Sale"
         listing["paymentProcFee"] = String(format: "%.2f", paymentProcFeeAmount)
         listing["transactionFee"] = String(format: "%.2f", transactionFeeAmount)
         
