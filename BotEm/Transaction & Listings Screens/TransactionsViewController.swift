@@ -29,20 +29,14 @@ class TransactionsViewController: UIViewController, UICollectionViewDelegate, UI
         transactionsCollectionView.delegate = self
         transactionsCollectionView.dataSource = self
         
-        /*
-                MAKE SURE TO CHANGE "WHEREKEY" BELOW TO SELLER INSTEAD OF AUTHOR AFTER PURCHASING CODING IS DONE. SUBMIT THE TRANSACTION TO SERVER WITH INFO FOR BUYER AND SELLER.
-         
-                THE COMMENTS BELOW THE "WHEREKEY" IS WHAT SHOULD BE USED.
-         
-                ALSO USE UNIX EPOCH TO KEEP TRACK OF LATEST TRANSACTIONS FOR THE BOTS (CODE FOR UNIX BELOW)
-                let timeinterval = Int(NSDate().timeIntervalSince1970)
-         */
         
-        let transactionsQuery = PFQuery(className: "Transactions")
-        transactionsQuery.whereKey("author", equalTo: PFUser.current()!)
-        //transactionsQuery.whereKey("seller", equalTo: PFUser.current()!)
-        //transactionsQuery.whereKey("buyer", equalTo: PFUser.current()!)
+        let sellerQuery = PFQuery(className:"Transactions")
+        sellerQuery.whereKey("seller", equalTo: PFUser.current()!)
         
+        let buyerQuery = PFQuery(className:"Transactions")
+        buyerQuery.whereKey("buyer", equalTo: PFUser.current()!)
+        
+        let transactionsQuery = PFQuery.orQuery(withSubqueries: [sellerQuery, buyerQuery])
         transactionsQuery.findObjectsInBackground { (transactions: [PFObject]?, error: Error?) in
             if let error = error {
                 print(error.localizedDescription)
@@ -51,10 +45,6 @@ class TransactionsViewController: UIViewController, UICollectionViewDelegate, UI
                 self.transactionsCollectionView.reloadData()
             }
         }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        self.transactionsCollectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -105,6 +95,8 @@ class TransactionsViewController: UIViewController, UICollectionViewDelegate, UI
         }
         
         cell.transactionStatus.text = statusOfTransaction
+        
+        self.viewDidLoad()
         
         return cell
     }
