@@ -19,8 +19,8 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     let user = PFUser.current()
 
-    let borderPurple = UIColor(hexFromString: "#8925B1")
-    let borderTeal = UIColor(hexFromString: "#3AC2A0")
+    let borderPurple = UIColor(hex: "#8925B1ff")
+    let borderTeal = UIColor(hex: "#3AC2A0ff")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,7 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
         profilePictureView.layer.cornerRadius = 100
         profilePictureView.clipsToBounds = true
         profilePictureView.layer.borderWidth = 4
-        profilePictureView.layer.borderColor = borderTeal.cgColor
+        profilePictureView.layer.borderColor = borderTeal?.cgColor
         profilePictureView.af_setImage(withURL: url)
         
         let firstName = user?["firstName"] as! String
@@ -44,7 +44,7 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         changePassButton.layer.cornerRadius = 10
         changePassButton.layer.borderWidth = 2
-        changePassButton.layer.borderColor = borderPurple.cgColor
+        changePassButton.layer.borderColor = borderPurple?.cgColor
     }
     
     @IBAction func onLogOut(_ sender: Any) {
@@ -59,7 +59,30 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @IBAction func onProfilePic(_ sender: Any) {
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+        
+        if (UIImagePickerController.isSourceTypeAvailable(.camera) && UIImagePickerController.isSourceTypeAvailable(.photoLibrary)) {
+        
+            let picker = UIImagePickerController()
+            picker.delegate = self
+            picker.allowsEditing = true
+            
+            let alert = UIAlertController(title: "Add a Profile Picture", message: "How would you like to add your picture?", preferredStyle: .actionSheet)
+        
+            alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { action in
+                picker.sourceType = UIImagePickerController.SourceType.camera
+                self.present(picker, animated: true, completion: nil)
+            }))
+            alert.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { action in
+                picker.sourceType = UIImagePickerController.SourceType.photoLibrary
+                self.present(picker, animated: true, completion: nil)
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
+                alert.dismiss(animated: true, completion: nil)
+            }))
+            
+            self.present(alert, animated: true)
+            
+        } else if UIImagePickerController.isSourceTypeAvailable(.camera) {
             let picker = UIImagePickerController()
             picker.delegate = self
             picker.allowsEditing = true

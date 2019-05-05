@@ -18,9 +18,9 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var signInButton: UIButton!
     
     
-    let borderPurple = UIColor(hexFromString: "#8925B1")
-    let borderDarkPurple = UIColor(hexFromString: "#362B57")
-    let borderGray = UIColor(hexFromString: "#A9A9A9")
+    let borderPurple = UIColor(hex: "#8925B1ff")
+    let borderDarkPurple = UIColor(hex: "#362B57ff")
+    let borderGray = UIColor(hex: "#A9A9A9ff")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,19 +31,19 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         usernameField.layer.cornerRadius = 10
         usernameField.layer.borderWidth = 1
-        usernameField.layer.borderColor = borderDarkPurple.cgColor
+        usernameField.layer.borderColor = borderDarkPurple?.cgColor
         
         passwordField.layer.cornerRadius = 10
         passwordField.layer.borderWidth = 1
-        passwordField.layer.borderColor = borderDarkPurple.cgColor
+        passwordField.layer.borderColor = borderDarkPurple?.cgColor
         
         signInButton.layer.cornerRadius = 10
         signInButton.layer.borderWidth = 2
-        signInButton.layer.borderColor = borderPurple.cgColor
+        signInButton.layer.borderColor = borderPurple?.cgColor
         
         signUpButton.layer.cornerRadius = 10
         signUpButton.layer.borderWidth = 2
-        signUpButton.layer.borderColor = borderGray.cgColor
+        signUpButton.layer.borderColor = borderGray?.cgColor
     }
     
     @IBAction func onSignIn(_ sender: Any) {
@@ -55,9 +55,24 @@ class LoginViewController: UIViewController {
             if user != nil {
                 self.performSegue(withIdentifier: "loginSegue", sender: nil)
             } else {
+                self.incorrectLoginAlert()
                 print("Error: \(String(describing: error?.localizedDescription))")
             }
         }
+    }
+    
+    @IBAction func endEditingTap(_ sender: Any) {
+        view.endEditing(true)
+    }
+    
+    @objc func incorrectLoginAlert() {
+        let alert = UIAlertController(title: "Login Incorrect", message: "Username and/or Password Incorrect. \n Please Try Again.", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Sounds Good", style: .default, handler: { action in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        
+        self.present(alert, animated: true)
     }
 }
 

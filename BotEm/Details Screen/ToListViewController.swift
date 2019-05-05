@@ -45,6 +45,8 @@ class ToListViewController: UIViewController {
         priceField.layer.borderWidth = 1
         priceField.layer.borderColor = borderDarkPurple?.cgColor
         
+        priceField.becomeFirstResponder()
+        
         listNowButton.layer.cornerRadius = 10
         
         cancelButton.layer.cornerRadius = 10
@@ -93,11 +95,22 @@ class ToListViewController: UIViewController {
         
         listing.saveInBackground() { (success, error) in
             if success {
-                self.performSegue(withIdentifier: "listNowSegue", sender: nil)
+                self.botListedAlert()
                 print("Listing Posted!")
             } else {
                 print("Error: \(String(describing: error?.localizedDescription))")
             }
         }
+    }
+    
+    @objc func botListedAlert() {
+        let alert = UIAlertController(title: "Bot Listed!", message: "Thank you for listing your bot! You can view or delete your listing in the Transactions Tab of the App.", preferredStyle: .alert)
+    
+        alert.addAction(UIAlertAction(title: "Thank You!", style: .default, handler: { action in
+            alert.dismiss(animated: true, completion: nil)
+            self.performSegue(withIdentifier: "listNowSegue", sender: nil)
+        }))
+        
+        self.present(alert, animated: true)
     }
 }

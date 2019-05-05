@@ -66,16 +66,24 @@ class UserListingsViewController: UIViewController, UICollectionViewDelegate, UI
         cell.payoutAmount.lineBreakMode = .byClipping
         cell.payoutAmount.text = "POTENTIAL PAYOUT: $" + payoutNum!
         
-        self.viewDidLoad()
-        
         return cell
     }
     
     @objc func deleteListing(sender:UIButton) {
         let i : Int = (sender.layer.value(forKey: "index")) as! Int
-        listings[i].deleteInBackground()
-        self.viewDidLoad()
-        UserListingsCollectionView.reloadData()
+        
+        let alert = UIAlertController(title: "Deleting Listing", message: "Are you sure you would like to delete this listing?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+            self.listings[i].deleteInBackground()
+            self.UserListingsCollectionView.reloadData()
+            self.viewDidLoad()
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { action in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        
+        self.present(alert, animated: true)
     }
 }
 

@@ -21,6 +21,10 @@ class TransactionsViewController: UIViewController, UICollectionViewDelegate, UI
     let awaitingKeyStatusColor = UIColor(hex: "#8825B0ff")
     let pendingStatusColor = UIColor(hex: "#FFAA22ff")
     
+    let purchaseBorder = UIColor(hex: "#3AC2A0ff")
+    let saleBorder = UIColor(hex: "#FDCF70ff")
+    let errorBorder = UIColor(hex: "#D31F49ff")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,6 +51,17 @@ class TransactionsViewController: UIViewController, UICollectionViewDelegate, UI
         }
     }
     
+    @IBAction func onLogout(_ sender: Any) {
+        PFUser.logOut()
+        
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let loginViewController = main.instantiateViewController(withIdentifier: "LoginViewController")
+        
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        
+        delegate.window?.rootViewController = loginViewController
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return transactions.count
     }
@@ -66,19 +81,34 @@ class TransactionsViewController: UIViewController, UICollectionViewDelegate, UI
             nameOfBot = "TheKickSt."
         }
         
+        let sellerEmail = transaction["sellerEmail"] as! String
+        let buyerEmail = transaction["buyerEmail"] as! String
+        
+        if (sellerEmail == PFUser.current()?.email && buyerEmail == PFUser.current()?.email){
+            cell.transactionType.text = "Why Your Own?"
+            cell.payoutAmount.text = ""
+            cell.layer.borderWidth = 3
+            cell.layer.borderColor = errorBorder?.cgColor
+        } else if (buyerEmail == PFUser.current()?.email){
+            cell.transactionType.text = "PURCHASE"
+            cell.payoutAmount.text = ""
+            cell.layer.borderWidth = 3
+            cell.layer.borderColor = purchaseBorder?.cgColor
+        } else if (sellerEmail == PFUser.current()?.email) {
+            cell.transactionType.text = "SALE"
+            let payoutNum = transaction["payoutAmount"] as? String
+            cell.payoutAmount.lineBreakMode = .byClipping
+            cell.payoutAmount.text = "PAYOUT: $" + payoutNum!
+            cell.layer.borderWidth = 3
+            cell.layer.borderColor = saleBorder?.cgColor
+        }
+        
         cell.botName.text = nameOfBot
-        
         cell.botType.text = transaction["botType"] as? String
-        cell.transactionType.text = transaction["transactionType"] as? String
-        
         let transacAmount = transaction["transactionAmount"] as? String
         cell.transactionAmount.text = "$" + transacAmount!
-        
-        let payoutNum = transaction["payoutAmount"] as? String
-        cell.payoutAmount.lineBreakMode = .byClipping
-        cell.payoutAmount.text = "PAYOUT: $" + payoutNum!
-        
-        cell.transactionNumber.text = transaction["transactionNumber"] as? String
+        let transacNumber = transaction["transactionNumber"] as! Int
+        cell.transactionNumber.text = String(transacNumber)
         
         let statusOfTransaction = transaction["transactionStatus"] as? String
         
@@ -96,7 +126,7 @@ class TransactionsViewController: UIViewController, UICollectionViewDelegate, UI
         
         cell.transactionStatus.text = statusOfTransaction
         
-        self.viewDidLoad()
+        //self.viewDidLoad()
         
         return cell
     }

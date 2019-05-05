@@ -16,9 +16,9 @@ class ChangePasswordViewController: UIViewController {
     @IBOutlet weak var changePasswordButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     
-    let borderPurple = UIColor(hexFromString: "#8925B1")
-    let borderDarkPurple = UIColor(hexFromString: "#362B57")
-    let borderRed = UIColor(hexFromString: "#D31F49")
+    let borderPurple = UIColor(hex: "#8925B1ff")
+    let borderDarkPurple = UIColor(hex: "#362B57ff")
+    let borderRed = UIColor(hex: "#D31F49ff")
     
     let user = PFUser.current()
     
@@ -29,36 +29,42 @@ class ChangePasswordViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         currentPasswordField.layer.cornerRadius = 10
         currentPasswordField.layer.borderWidth = 1
-        currentPasswordField.layer.borderColor = borderDarkPurple.cgColor
+        currentPasswordField.layer.borderColor = borderDarkPurple?.cgColor
         
         newPasswordField.layer.cornerRadius = 10
         newPasswordField.layer.borderWidth = 1
-        newPasswordField.layer.borderColor = borderDarkPurple.cgColor
+        newPasswordField.layer.borderColor = borderDarkPurple?.cgColor
         
         repeatNewPasswordField.layer.cornerRadius = 10
         repeatNewPasswordField.layer.borderWidth = 1
-        repeatNewPasswordField.layer.borderColor = borderDarkPurple.cgColor
+        repeatNewPasswordField.layer.borderColor = borderDarkPurple?.cgColor
         
         changePasswordButton.layer.cornerRadius = 10
         changePasswordButton.layer.borderWidth = 2
-        changePasswordButton.layer.borderColor = borderPurple.cgColor
+        changePasswordButton.layer.borderColor = borderPurple?.cgColor
         
         cancelButton.layer.cornerRadius = 10
         cancelButton.layer.borderWidth = 2
-        cancelButton.layer.borderColor = borderRed.cgColor
+        cancelButton.layer.borderColor = borderRed?.cgColor
     }
     
     @IBAction func onCancel(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func endEditingTap(_ sender: Any) {
+        view.endEditing(true)
+    }
+    
     @IBAction func onChangePass(_ sender: Any) {
         let currentPassword = user!["stringPass"] as! String
         
         if (currentPasswordField.text != currentPassword) {
-            print("Current Password Incorrect")
+            let currentWrong = "Current Password Incorrect"
+            incorrectPasswordChangeAlert(message: currentWrong)
         } else if (newPasswordField.text != repeatNewPasswordField.text) {
-            print("Passwords Do Not Match")
+            let newWrong = "New Passwords Do Not Match"
+            incorrectPasswordChangeAlert(message: newWrong)
         } else {
             user?.password = newPasswordField.text
             user!["stringPass"] = newPasswordField.text
@@ -67,9 +73,20 @@ class ChangePasswordViewController: UIViewController {
                     print("Password Changed")
                     self.dismiss(animated: true, completion: nil)
                 } else {
+                    self.incorrectPasswordChangeAlert(message: String(describing: error?.localizedDescription))
                     print("Error: \(String(describing: error?.localizedDescription))")
                 }
             }
         }
+    }
+    
+    @objc func incorrectPasswordChangeAlert(message: String) {
+        let alert = UIAlertController(title: "Password Information Incorrect", message: "\(message). \n Please Try Again.", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Sounds Good", style: .default, handler: { action in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        
+        self.present(alert, animated: true)
     }
 }

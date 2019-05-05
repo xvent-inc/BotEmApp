@@ -84,6 +84,7 @@ class SignUpViewController: UIViewController {
             if success {
                 self.dismiss(animated: true, completion: nil)
             } else {
+                self.missingInformationAlert()
                 print("Error: \(String(describing: error?.localizedDescription))")
             }
         }
@@ -92,9 +93,21 @@ class SignUpViewController: UIViewController {
     @IBAction func onCancel(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func endEditingTap(_ sender: Any) {
+        view.endEditing(true)
+    }
+    
+    @objc func missingInformationAlert() {
+        let alert = UIAlertController(title: "Missing Information", message: "Information is missing or incorrect. \n Please Try Again.", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Sounds Good", style: .default, handler: { action in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        
+        self.present(alert, animated: true)
+    }
 }
-
-
 
 extension UIColor {
     public convenience init?(hex: String) {
