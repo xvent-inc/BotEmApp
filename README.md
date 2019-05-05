@@ -414,7 +414,14 @@ Organized marketplace for streetwear/sneaker bots. Serves as a middle-man betwee
     }
     ```
 ## Current Progress
+
+### --------------------------------------APP IS COMPLETE--------------------------------------
+
 <img src="http://g.recordit.co/Rot34tTLGR.gif" width=200>
+
+Watch the Genuine User Experience Using the Link Below!
+
+https://www.youtube.com/watch?v=G3uGaZ_Q26M
 
 - [x] Login Screen
 - [x] Sign up screen
@@ -425,3 +432,6 @@ Organized marketplace for streetwear/sneaker bots. Serves as a middle-man betwee
 - [x] Change Password Screen
 - [x] Listings Screen
 - [x] Transactions Screen
+- [x] Ability to Purchase a Bot
+
+- [x] APP FINISHED
