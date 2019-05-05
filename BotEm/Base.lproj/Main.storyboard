@@ -849,7 +849,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="bKV-Mx-XRw"/>
                                 </constraints>
-                                <state key="normal" title="Change Passsword">
+                                <state key="normal" title="Change Password">
                                     <color key="titleColor" red="0.53725490200000003" green="0.1450980392" blue="0.69411764710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
