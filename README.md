@@ -425,3 +425,6 @@ Organized marketplace for streetwear/sneaker bots. Serves as a middle-man betwee
 - [x] Change Password Screen
 - [x] Listings Screen
 - [x] Transactions Screen
+- [x] Ability to Purchase a Bot
+
+- [x] APP FINISHED
