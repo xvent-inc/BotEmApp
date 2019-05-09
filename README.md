@@ -421,7 +421,7 @@ Organized marketplace for streetwear/sneaker bots. Serves as a middle-man betwee
 
 Watch the Genuine User Experience Using the Link Below!
 
-https://www.youtube.com/watch?v=G3uGaZ_Q26M
+https://www.youtube.com/watch?v=EaIB-9tiU0g
 
 - [x] Login Screen
 - [x] Sign up screen
