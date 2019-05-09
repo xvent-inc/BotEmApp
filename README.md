@@ -417,7 +417,7 @@ Organized marketplace for streetwear/sneaker bots. Serves as a middle-man betwee
 
 ### --------------------------------------APP IS COMPLETE--------------------------------------
 
-<img src="http://g.recordit.co/Rot34tTLGR.gif" width=200>
+<img src="http://g.recordit.co/516MQX1zjd.gif" width=200>
 
 Watch the Genuine User Experience Using the Link Below!
 
